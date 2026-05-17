@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Up — Sitios web para negocios en Chile</title>
+  <meta name="description" content="Creamos tu sitio web profesional en 7 días. Diseño moderno, optimizado para Google y celular. $150.000 CLP pago único. Agencia web en Santiago, Chile." />
+  <meta name="keywords" content="sitio web Santiago, diseño web Chile, agencia web Santiago, página web negocio, web para restaurantes Chile" />
+  <meta property="og:title" content="Web Up — Tu negocio visible en Google" />
+  <meta property="og:description" content="Sitio web profesional en 7 días. $150.000 CLP pago único. Sin mensualidades." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webup.cl" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0A0A0F;
+      --card: #111118;
+      --border: #1E1E2E;
+      --purple: #5B6CF9;
+      --violet: #8B5CF6;
+      --white: #FFFFFF;
+      --muted: #888899;
+      --faint: #333344;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .grad { background: linear-gradient(135deg, var(--purple), var(--violet)); }
+    .grad-text {
+      background: linear-gradient(135deg, var(--purple), var(--violet));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 40px;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 0.5px solid var(--border);
+      transition: padding 0.3s;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-text { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; color: var(--white); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .btn-nav {
+      background: linear-gradient(135deg, var(--purple), var(--violet));
+      color: #fff; border: none; padding: 10px 22px;
+      border-radius: 8px; font-size: 14px; font-weight: 500;
+      cursor: pointer; font-family: 'DM Sans', sans-serif;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .btn-nav:hover { opacity: 0.88; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 120px 24px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: radial-gradient(ellipse at 50% 0%, rgba(91,108,249,0.15) 0%, transparent 60%),
+        radial-gradient(circle at 20% 80%, rgba(139,92,246,0.08) 0%, transparent 40%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.3;
+      mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(91,108,249,0.12); border: 0.5px solid rgba(91,108,249,0.3);
+      color: #8B9FFA; font-size: 13px; padding: 6px 16px; border-radius: 20px;
+      margin-bottom: 28px;
+    }
+    .hero-badge span { width: 6px; height: 6px; background: var(--purple); border-radius: 50%; }
+    .hero h1 {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(42px, 7vw, 80px); line-height: 1.05;
+      letter-spacing: -2px; margin-bottom: 24px;
+    }
+    .hero p {
+      font-size: clamp(16px, 2vw, 20px); color: var(--muted);
+      max-width: 520px; margin: 0 auto 40px; line-height: 1.7;
+    }
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--purple), var(--violet));
+      color: #fff; border: none; padding: 16px 32px;
+      border-radius: 10px; font-size: 16px; font-weight: 500;
+      cursor: pointer; font-family: 'DM Sans', sans-serif;
+      text-decoration: none; transition: opacity 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent; color: var(--white);
+      border: 0.5px solid var(--border); padding: 16px 32px;
+      border-radius: 10px; font-size: 16px; cursor: pointer;
+      font-family: 'DM Sans', sans-serif; text-decoration: none;
+      transition: background 0.2s, transform 0.15s; display: inline-block;
+    }
+    .btn-secondary:hover { background: var(--card); transform: translateY(-1px); }
+
+    /* SOCIAL PROOF */
+    .trust {
+      padding: 20px 40px; border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .trust-label { font-size: 12px; color: var(--faint); text-transform: uppercase; letter-spacing: 1px; }
+    .trust-names { display: flex; gap: 32px; flex-wrap: wrap; justify-content: center; }
+    .trust-name { font-size: 13px; color: #2A2A3A; font-family: monospace; }
+
+    /* SECTIONS */
+    section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 12px; color: var(--purple); text-transform: uppercase;
+      letter-spacing: 2px; margin-bottom: 16px; font-weight: 500;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(32px, 4vw, 52px); line-height: 1.1;
+      letter-spacing: -1px; margin-bottom: 20px;
+    }
+    .section-sub { font-size: 18px; color: var(--muted); max-width: 540px; line-height: 1.7; }
+
+    /* PROBLEMA */
+    .problema-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 48px; }
+    .problema-card {
+      background: var(--card); border: 0.5px solid var(--border);
+      border-left: 3px solid; border-image: linear-gradient(180deg, var(--purple), var(--violet)) 1;
+      border-radius: 0 12px 12px 0; padding: 24px;
+    }
+    .problema-icon { font-size: 24px; margin-bottom: 12px; }
+    .problema-title { font-weight: 500; font-size: 16px; margin-bottom: 8px; }
+    .problema-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* SOLUCIÓN */
+    .solucion-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 48px; }
+    .solucion-item {
+      background: var(--card); border: 0.5px solid var(--border);
+      border-radius: 12px; padding: 20px;
+      transition: border-color 0.2s;
+    }
+    .solucion-item:hover { border-color: rgba(91,108,249,0.4); }
+    .solucion-check {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--violet));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; margin-bottom: 12px;
+    }
+    .solucion-item h3 { font-size: 14px; font-weight: 500; margin-bottom: 4px; }
+    .solucion-item p { font-size: 13px; color: var(--muted); }
+
+    /* PROCESO */
+    .proceso-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; margin-top: 48px; position: relative; }
+    .proceso-step { padding: 32px 24px; position: relative; }
+    .proceso-num {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 56px;
+      background: linear-gradient(135deg, var(--purple), var(--violet));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; line-height: 1; margin-bottom: 16px;
+    }
+    .proceso-step h3 { font-size: 18px; font-weight: 500; margin-bottom: 8px; }
+    .proceso-step p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* PRECIO */
+    .precio-wrapper { display: flex; justify-content: center; margin-top: 48px; }
+    .precio-card {
+      background: var(--card); border: 0.5px solid rgba(91,108,249,0.4);
+      border-radius: 20px; padding: 48px; max-width: 480px; width: 100%;
+      position: relative; overflow: hidden;
+    }
+    .precio-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--purple), var(--violet));
+    }
+    .precio-badge {
+      display: inline-block; background: linear-gradient(135deg, var(--purple), var(--violet));
+      color: #fff; font-size: 11px; font-weight: 700; padding: 4px 14px;
+      border-radius: 20px; margin-bottom: 20px; letter-spacing: 0.5px;
+    }
+    .precio-num { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 52px; color: var(--white); }
+    .precio-cur { font-size: 18px; color: var(--muted); margin-left: 6px; }
+    .precio-sub { font-size: 14px; color: var(--muted); margin: 8px 0 28px; }
+    .precio-checks { list-style: none; margin-bottom: 32px; }
+    .precio-checks li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 15px; padding: 8px 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .precio-checks li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--violet));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; flex-shrink: 0;
+    }
+    .precio-note { font-size: 13px; color: var(--faint); text-align: center; margin-top: 16px; }
+
+    /* PARA QUIÉN */
+    .rubros-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-top: 48px; }
+    .rubro-card {
+      background: var(--card); border: 0.5px solid var(--border);
+      border-radius: 12px; padding: 20px 16px; text-align: center;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .rubro-card:hover { border-color: rgba(91,108,249,0.3); transform: translateY(-2px); }
+    .rubro-icon { font-size: 28px; margin-bottom: 10px; }
+    .rubro-name { font-size: 13px; font-weight: 500; }
+
+    /* TESTIMONIOS */
+    .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 48px; }
+    .testi-card {
+      background: var(--card); border: 0.5px solid var(--border);
+      border-radius: 16px; padding: 24px;
+    }
+    .testi-stars { color: #F9C74F; font-size: 14px; margin-bottom: 14px; }
+    .testi-text { font-size: 15px; color: #C8C8E8; line-height: 1.7; margin-bottom: 18px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 10px; }
+    .testi-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--violet));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+    }
+    .testi-name { font-size: 14px; font-weight: 500; }
+    .testi-biz { font-size: 12px; color: var(--muted); }
+
+    /* FAQ */
+    .faq-list { margin-top: 48px; max-width: 720px; }
+    .faq-item {
+      border-bottom: 0.5px solid var(--border); padding: 20px 0; cursor: pointer;
+    }
+    .faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 16px; font-weight: 500; gap: 16px;
+    }
+    .faq-arrow { color: var(--purple); font-size: 18px; transition: transform 0.2s; flex-shrink: 0; }
+    .faq-a { font-size: 14px; color: var(--muted); line-height: 1.7; margin-top: 12px; display: none; }
+    .faq-item.open .faq-arrow { transform: rotate(45deg); }
+    .faq-item.open .faq-a { display: block; }
+
+    /* CTA FINAL */
+    .cta-final {
+      margin: 0 24px 80px; border-radius: 24px; padding: 80px 40px;
+      text-align: center; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, rgba(91,108,249,0.15), rgba(139,92,246,0.1));
+      border: 0.5px solid rgba(91,108,249,0.25);
+    }
+    .cta-final h2 {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(32px, 4vw, 52px); letter-spacing: -1px; margin-bottom: 16px;
+    }
+    .cta-final p { font-size: 18px; color: var(--muted); margin-bottom: 36px; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer {
+      border-top: 0.5px solid var(--border); padding: 32px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .footer-logo-text { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 14px; color: var(--white); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--faint); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: 12px; color: var(--faint); }
+
+    /* WHATSAPP FLOTANTE */
+    .wa-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 99;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: #25D366; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+      text-decoration: none; transition: transform 0.2s;
+    }
+    .wa-float:hover { transform: scale(1.08); }
+
+    /* ANIMACIONES */
+    .fade-up {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      section { padding: 72px 20px; }
+      .trust { padding: 20px; gap: 20px; }
+      .trust-names { gap: 16px; }
+      .cta-final { margin: 0 16px 60px; padding: 52px 24px; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg width="26" height="26" viewBox="0 0 100 110" fill="none">
+      <defs>
+        <linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#5B6CF9"/>
+          <stop offset="100%" stop-color="#8B5CF6"/>
+        </linearGradient>
+      </defs>
+      <polygon points="10,5 50,5 28,48" fill="url(#ng)"/>
+      <polygon points="50,5 90,5 72,48" fill="url(#ng)"/>
+      <polygon points="32,52 50,18 68,52 58,52 50,34 42,52" fill="url(#ng)"/>
+      <polygon points="36,56 50,105 64,56 57,64 50,82 43,64" fill="url(#ng)"/>
+    </svg>
+    <span class="nav-logo-text">Web Up</span>
+  </a>
+  <div class="nav-links">
+    <a href="#servicios">Servicios</a>
+    <a href="#precio">Precio</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://wa.me/56912345678" class="btn-nav">Quiero mi sitio</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content fade-up">
+    <div class="hero-badge"><span></span> Agencia web en Santiago, Chile</div>
+    <h1>Tu negocio existe.<br><span class="grad-text">Que Google lo sepa.</span></h1>
+    <p>Creamos tu sitio web profesional en menos de 7 días. Listo para que tus clientes te encuentren, te llamen y reserven.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/56912345678" class="btn-primary">Quiero mi sitio web →</a>
+      <a href="#servicios" class="btn-secondary">Ver qué incluye</a>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST -->
+<div class="trust">
+  <span class="trust-label">Ya confían en Web Up</span>
+  <div class="trust-names">
+    <span class="trust-name">Cafetería El Rincón</span>
+    <span class="trust-name">Dental Providencia</span>
+    <span class="trust-name">Taller Norte</span>
+    <span class="trust-name">Peluquería Lola</span>
+    <span class="trust-name">Restaurant Don Pancho</span>
+  </div>
+</div>
+
+<!-- PROBLEMA -->
+<section id="servicios">
+  <div class="fade-up">
+    <div class="section-label">El problema</div>
+    <h2 class="section-title">¿Cuántos clientes te están<br><span class="grad-text">perdiendo ahora mismo?</span></h2>
+    <p class="section-sub">Cada día que no tienes sitio web, estás regalándole clientes a tu competencia.</p>
+  </div>
+  <div class="problema-grid fade-up">
+    <div class="problema-card">
+      <div class="problema-icon">🔍</div>
+      <div class="problema-title">Te buscaron en Google</div>
+      <div class="problema-desc">No te encontraron. Fueron donde la competencia que sí aparece en los primeros resultados.</div>
+    </div>
+    <div class="problema-card">
+      <div class="problema-icon">📍</div>
+      <div class="problema-title">Entraron a tu perfil de Maps</div>
+      <div class="problema-desc">No había sitio web. El cliente no confió, necesitaba más información y se fue.</div>
+    </div>
+    <div class="problema-card">
+      <div class="problema-icon">💸</div>
+      <div class="problema-title">Perdiste la venta</div>
+      <div class="problema-desc">Tu competencia con web cerró ese cliente. Tú no. Y eso pasa todos los días.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUCIÓN -->
+<section style="background: #0D0D16; max-width: 100%; padding: 100px 24px;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="fade-up">
+      <div class="section-label">La solución</div>
+      <h2 class="section-title">Todo lo que necesita<br>tu negocio online</h2>
+      <p class="section-sub">Un sitio web completo, profesional y listo para generar clientes desde el día uno.</p>
+    </div>
+    <div class="solucion-grid fade-up">
+      <div class="solucion-item">
+        <div class="solucion-check">✓</div>
+        <h3>Diseño profesional</h3>
+        <p>Adaptado a tu negocio, colores y estilo propio.</p>
+      </div>
+      <div class="solucion-item">
+        <div class="solucion-check">✓</div>
+        <h3>100% para celular</h3>
+        <p>Se ve perfecto en cualquier dispositivo.</p>
+      </div>
+      <div class="solucion-item">
+        <div class="solucion-check">✓</div>
+        <h3>Apareces en Google</h3>
+        <p>SEO local optimizado para tu zona y rubro.</p>
+      </div>
+      <div class="solucion-item">
+        <div class="solucion-check">✓</div>
+        <h3>WhatsApp directo</h3>
+        <p>Botón de contacto visible en todo momento.</p>
+      </div>
+      <div class="solucion-item">
+        <div class="solucion-check">✓</div>
+        <h3>Fotos y servicios</h3>
+        <p>Galería, carta, precios o lo que necesites mostrar.</p>
+      </div>
+      <div class="solucion-item">
+        <div class="solucion-check">✓</div>
+        <h3>Listo en 7 días</h3>
+        <p>Sin esperas, sin procesos largos. Esta semana.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section>
+  <div class="fade-up">
+    <div class="section-label">Cómo funciona</div>
+    <h2 class="section-title">Así de <span class="grad-text">simple</span></h2>
+    <p class="section-sub">Tú no tocas nada técnico. Nosotros nos encargamos de todo.</p>
+  </div>
+  <div class="proceso-steps fade-up">
+    <div class="proceso-step">
+      <div class="proceso-num">01</div>
+      <h3>Nos cuentas de tu negocio</h3>
+      <p>Llamada de 20 minutos. Tú hablas, nosotros tomamos nota de todo lo que necesitamos.</p>
+    </div>
+    <div class="proceso-step">
+      <div class="proceso-num">02</div>
+      <h3>Construimos todo</h3>
+      <p>Diseño, textos, fotos, estructura. Tú no tienes que hacer nada técnico.</p>
+    </div>
+    <div class="proceso-step">
+      <div class="proceso-num">03</div>
+      <h3>Revisas y publicamos</h3>
+      <p>Ves el resultado, propones cambios si los hay, y queda online esta semana.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIO -->
+<section id="precio" style="background: #0D0D16; max-width: 100%; padding: 100px 24px;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="fade-up" style="text-align: center;">
+      <div class="section-label">Precio</div>
+      <h2 class="section-title">Un precio.<br><span class="grad-text">Sin sorpresas.</span></h2>
+      <p class="section-sub" style="margin: 0 auto;">Sin mensualidades, sin letra chica, sin costos ocultos.</p>
+    </div>
+    <div class="precio-wrapper fade-up">
+      <div class="precio-card">
+        <div class="precio-badge">MÁS POPULAR</div>
+        <div>
+          <span class="precio-num">$150.000</span>
+          <span class="precio-cur">CLP</span>
+        </div>
+        <div class="precio-sub">Pago único · Sin mensualidades · Sin letra chica</div>
+        <ul class="precio-checks">
+          <li><div class="check-icon">✓</div> Diseño profesional a tu imagen</li>
+          <li><div class="check-icon">✓</div> 100% adaptado al celular</li>
+          <li><div class="check-icon">✓</div> Optimizado para aparecer en Google</li>
+          <li><div class="check-icon">✓</div> Botón de WhatsApp y formulario de contacto</li>
+          <li><div class="check-icon">✓</div> Galería de fotos, carta o servicios</li>
+          <li><div class="check-icon">✓</div> Entrega en 7 días o menos</li>
+        </ul>
+        <a href="https://wa.me/56912345678" class="btn-primary" style="display: block; text-align: center; width: 100%; padding: 16px;">Quiero empezar →</a>
+        <p class="precio-note">¿Necesitas algo adicional? Hablamos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA QUIÉN -->
+<section>
+  <div class="fade-up">
+    <div class="section-label">Para quién es</div>
+    <h2 class="section-title">Hecho para negocios<br><span class="grad-text">como el tuyo</span></h2>
+  </div>
+  <div class="rubros-grid fade-up">
+    <div class="rubro-card"><div class="rubro-icon">🍽️</div><div class="rubro-name">Restaurantes y cafeterías</div></div>
+    <div class="rubro-card"><div class="rubro-icon">🦷</div><div class="rubro-name">Clínicas y dentistas</div></div>
+    <div class="rubro-card"><div class="rubro-icon">✂️</div><div class="rubro-name">Peluquerías y estética</div></div>
+    <div class="rubro-card"><div class="rubro-icon">🔧</div><div class="rubro-name">Talleres y servicios</div></div>
+    <div class="rubro-card"><div class="rubro-icon">🐾</div><div class="rubro-name">Veterinarias y mascotas</div></div>
+    <div class="rubro-card"><div class="rubro-icon">🍞</div><div class="rubro-name">Panaderías y pastelerías</div></div>
+    <div class="rubro-card"><div class="rubro-icon">🏠</div><div class="rubro-name">Servicios a domicilio</div></div>
+    <div class="rubro-card"><div class="rubro-icon">🛍️</div><div class="rubro-name">Tiendas de barrio</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section style="background: #0D0D16; max-width: 100%; padding: 100px 24px;">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="fade-up">
+      <div class="section-label">Testimonios</div>
+      <h2 class="section-title">Lo que dicen<br><span class="grad-text">nuestros clientes</span></h2>
+    </div>
+    <div class="testi-grid fade-up">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"En menos de una semana ya teníamos el sitio listo. Ahora nos llegan clientes que antes no nos encontraban en Google. Lo mejor fue que no tuvimos que hacer nada técnico."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">CM</div>
+          <div><div class="testi-name">Carlos Muñoz</div><div class="testi-biz">Cafetería El Rincón · Ñuñoa</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Teníamos miedo de que fuera complicado, pero fue todo al revés. Nos hicieron una llamada, tomaron nota de todo y en 6 días teníamos la web publicada. Muy recomendados."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AP</div>
+          <div><div class="testi-name">Ana Pérez</div><div class="testi-biz">Dental Providencia · Providencia</div></div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"El precio es súper accesible para todo lo que incluye. Ya recuperamos la inversión el primer mes con los clientes nuevos que llegaron por Google."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">RL</div>
+          <div><div class="testi-name">Roberto Lagos</div><div class="testi-biz">Taller Norte · Maipú</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="fade-up">
+    <div class="section-label">Preguntas frecuentes</div>
+    <h2 class="section-title">¿Tienes dudas?</h2>
+  </div>
+  <div class="faq-list fade-up">
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Cuánto demora en estar lista mi web? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Entre 5 y 7 días hábiles desde que hacemos la llamada inicial. En casos simples hemos entregado en 3 días.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Necesito saber de computadores para tener una web? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Para nada. Nosotros nos encargamos de todo — diseño, textos, publicación y configuración. Tú solo nos cuentas de tu negocio y revisas el resultado.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Qué pasa si quiero hacer cambios después? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Incluimos hasta 2 rondas de cambios sin costo adicional antes de publicar. Para cambios posteriores tenemos tarifas muy accesibles.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Incluye dominio y hosting? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">El dominio (.cl o .com) y el primer año de hosting están incluidos en el precio. A partir del segundo año pagas directamente al proveedor (aproximadamente $15.000 CLP al año).</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Por qué no usar Wix o hacerla yo mismo? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Puedes hacerlo, pero las webs de Wix o similares no están optimizadas para Google, tienen publicidad de la plataforma y requieren tiempo que podrías dedicar a tu negocio. Nosotros entregamos algo profesional y listo para generar clientes desde el día uno.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="cta-final fade-up">
+  <h2>¿Listo para que<br><span class="grad-text">te encuentren?</span></h2>
+  <p>Escríbenos hoy. Esta semana tu negocio ya está en Google.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/56912345678" class="btn-primary">Escribir a WhatsApp →</a>
+    <a href="mailto:hola@webup.cl" class="btn-secondary">Enviar un email</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">
+    <svg width="20" height="20" viewBox="0 0 100 110" fill="none">
+      <defs>
+        <linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#5B6CF9"/>
+          <stop offset="100%" stop-color="#8B5CF6"/>
+        </linearGradient>
+      </defs>
+      <polygon points="10,5 50,5 28,48" fill="url(#fg)"/>
+      <polygon points="50,5 90,5 72,48" fill="url(#fg)"/>
+      <polygon points="32,52 50,18 68,52 58,52 50,34 42,52" fill="url(#fg)"/>
+      <polygon points="36,56 50,105 64,56 57,64 50,82 43,64" fill="url(#fg)"/>
+    </svg>
+    <span class="footer-logo-text">Web Up</span>
+  </a>
+  <div class="footer-links">
+    <a href="#servicios">Servicios</a>
+    <a href="#precio">Precio</a>
+    <a href="#faq">FAQ</a>
+    <a href="mailto:hola@webup.cl">hola@webup.cl</a>
+  </div>
+  <span class="footer-copy">© 2025 Web Up — Santiago, Chile</span>
+</footer>
+
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/56912345678" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  function toggleFaq(el) {
+    el.classList.toggle('open')
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target) } })
+  }, { threshold: 0.1 })
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el))
+</script>
+
+</body>
+</html>
